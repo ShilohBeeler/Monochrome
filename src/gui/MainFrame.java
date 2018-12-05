@@ -45,7 +45,6 @@ public class MainFrame extends JFrame implements KeyListener
     @Override
     public void keyPressed(KeyEvent e)
     {
-        System.out.println("test");
         if(e.getKeyCode() == KeyEvent.VK_ENTER)
         {
             dialogPanel.nextLine();

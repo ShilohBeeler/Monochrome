@@ -24,7 +24,7 @@ public class DialogPanel extends JPanel
         setBorder(BorderFactory.createLineBorder(Color.WHITE));
         setPreferredSize(new Dimension(800, 100));
         
-        displayText = new JLabel(th.getLine());
+        displayText = new JLabel(th.processLine());
         displayText.setFont(Font.getFont(Font.MONOSPACED));
         displayText.setForeground(Color.WHITE);
         
@@ -33,7 +33,7 @@ public class DialogPanel extends JPanel
     
     public void nextLine()
     {
-        displayText.setText(th.getLine());
+        displayText.setText(th.processLine());
         repaint();
     }
 }
