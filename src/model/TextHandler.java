@@ -53,7 +53,7 @@ public class TextHandler
             skipLines--;
         }
 
-        int chunkSize = 4;
+        int chunkSize = 200;
 
         while (br.ready() && chunkSize > 0)
         {
@@ -70,9 +70,16 @@ public class TextHandler
         br.close();
     }
 
-    private void setFile(File file)
+    public void setFile(File file)
     {
         sourceFile = file;
+        try
+        {
+            parseFile(0);
+        } catch (IOException e)
+        {
+            textLines.add("File could not be loaded.");
+        }
     }
 
     public String processLine()

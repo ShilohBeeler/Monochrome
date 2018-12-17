@@ -16,6 +16,7 @@ public class DialogPanel extends JPanel
 {
     private JLabel displayText;
     private TextHandler th;
+    private Font font = FontContainer.getFont();
     
     public DialogPanel()
     {
@@ -25,10 +26,15 @@ public class DialogPanel extends JPanel
         setPreferredSize(new Dimension(800, 100));
         
         displayText = new JLabel(th.processLine());
-        displayText.setFont(Font.getFont(Font.MONOSPACED));
+        displayText.setFont(font);
         displayText.setForeground(Color.WHITE);
         
         add(displayText);
+    }
+    
+    public TextHandler getTextHandler()
+    {
+        return th;
     }
     
     public void nextLine()
