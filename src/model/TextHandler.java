@@ -34,6 +34,11 @@ public class TextHandler
             System.out.println(e.getMessage());
         }
     }
+    
+    public TextHandler(String file)
+    {
+        this(new File(file));
+    }
 
     private void parseFile(int index) throws IOException
     {
@@ -48,7 +53,7 @@ public class TextHandler
             skipLines--;
         }
 
-        int chunkSize = 200;
+        int chunkSize = 4;
 
         while (br.ready() && chunkSize > 0)
         {

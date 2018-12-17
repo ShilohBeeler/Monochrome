@@ -19,7 +19,7 @@ public class DialogPanel extends JPanel
     
     public DialogPanel()
     {
-        th = new TextHandler();
+        th = new TextHandler(System.getProperty("user.home") + "/MNCHRM/Default.mono");
         setBackground(Color.BLACK);
         setBorder(BorderFactory.createLineBorder(Color.WHITE));
         setPreferredSize(new Dimension(800, 100));
