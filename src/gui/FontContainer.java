@@ -28,6 +28,5 @@ public class FontContainer
         font = font.deriveFont(12f);
         
         return font;
-        
     }
 }
