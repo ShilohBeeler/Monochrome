@@ -11,6 +11,7 @@ public class TextHandler
     private LinkedList<String> textLines;
     private String prev;
     private File sourceFile;
+    private File gameDir;
 
     public TextHandler()
     {
@@ -73,6 +74,7 @@ public class TextHandler
     public void setFile(File file)
     {
         sourceFile = file;
+        gameDir = sourceFile.getParentFile();
         try
         {
             parseFile(0);
@@ -91,7 +93,12 @@ public class TextHandler
             return prev;
         } else if (curr.startsWith("<img>"))
         {
-            return "load image here";
+            String ground = curr.split(" ")[1];
+            if(ground.equals("b"))
+            {
+                
+            }
+            return "image stuff";
         } else if (curr.startsWith("<load>"))
         {
             return "load text file here";
