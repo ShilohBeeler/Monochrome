@@ -10,25 +10,25 @@ Dynamic text, image, and music "displaying" should be fully supported, using the
 
 | Tag | Description | Example |
 | --- | --- | --- |
-| <img> [b/f] image.png | The image tag will read from your game's images folder and display it as either a background or foreground image depending on your specification. | <img> b city.png |
-| <mus> songname | The music tag will automatically look for your song's folder in the game's music folder, and will check automatically to see if it's a single loop or if it has an intro, and play it accordingly. | <mus> outrun |
-| <load> scriptname | The load file allows you to indicate that the game should run from a different .mono script -- this allows you to easily break up the script into multiple files when writing it for ease of organization. | <load> chapter2 |
-| <end> | This is necessary so as to indicate to the engine that the game is over. It will stay on the last line of text indefinitely. | <end> |
+| \<img> [b/f] image.png | The image tag will read from your game's images folder and display it as either a background or foreground image depending on your specification. | \<img> b city.png |
+| \<mus> songname | The music tag will automatically look for your song's folder in the game's music folder, and will check automatically to see if it's a single loop or if it has an intro, and play it accordingly. | \<mus> outrun |
+| \<load> scriptname | The load file allows you to indicate that the game should run from a different .mono script -- this allows you to easily break up the script into multiple files when writing it for ease of organization. | \<load> chapter2 |
+| \<end> | This is necessary so as to indicate to the engine that the game is over. It will stay on the last line of text indefinitely. | \<end> |
 
 Much of how the engine works is based around a strict file structure for each game. This is still in the works, but looks like follows:
 
-> game folder
-> ---main.mono
-> ---images folder
-> ------image1.png
-> ------image2.png
-> ---scripts folder
-> ------scripts
-> ---music folder
-> ------song 1 folder
-> ---------intro.mp3
-> ---------loop.mp3
-> ------song 2 folder
+> game folder  
+> ---main.mono  
+> ---images folder  
+> ------image1.png  
+> ------image2.png  
+> ---scripts folder  
+> ------scripts  
+> ---music folder  
+> ------song 1 folder  
+> ---------intro.mp3  
+> ---------loop.mp3  
+> ------song 2 folder  
 > ---------loop.mp3
 
 The naming conventions allows easy access to your resources when writing the scripts, and for the music, allows songs with intros to be handled easily. The tradeoff, of course, is simply that the naming convention is necessary when creating your own game.
