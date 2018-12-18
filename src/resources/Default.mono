@@ -1,0 +1,6 @@
+This is a test of the file loading and chunking system.
+This is the second line.
+After this line, we will see another line.
+This line is the last in the chunk.
+And it seamlessly transitions to the second chunk.
+<end>

@@ -24,7 +24,7 @@ public class MainFrame extends JFrame implements KeyListener, ActionListener
     private DialogPanel dialogPanel = new DialogPanel();
     private MenuPanel menuPanel = new MenuPanel();
 
-    MainFrame()
+    public MainFrame()
     {
         BorderLayout bl = new BorderLayout();
         setLayout(bl);
@@ -95,10 +95,5 @@ public class MainFrame extends JFrame implements KeyListener, ActionListener
             System.exit(0);
         }
 
-    }
-
-    public static void main(String[] args)
-    {
-        MainFrame lft = new MainFrame();
     }
 }
