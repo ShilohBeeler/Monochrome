@@ -6,26 +6,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
+import gui.MainFrame;
+
 public class TextHandler
 {
     private LinkedList<String> textLines;
     private String prev;
     private File sourceFile;
     private File gameDir;
+    private MainFrame mainFrame;
 
-    public TextHandler()
+    public TextHandler(MainFrame mf, File file)
     {
         textLines = new LinkedList<String>();
-        textLines.add("First Line.");
-        textLines.add("Second Line.");
-        textLines.add("Third Line.");
-        textLines.add("You get the idea.");
-        textLines.add("<end>");
-    }
-
-    public TextHandler(File file)
-    {
-        this();
+        textLines.add("Default");
+        mainFrame = mf;
         setFile(file);
         try
         {
@@ -35,10 +30,10 @@ public class TextHandler
             System.out.println(e.getMessage());
         }
     }
-    
-    public TextHandler(String file)
+
+    public TextHandler(MainFrame mf, String file)
     {
-        this(new File(file));
+        this(mf, new File(file));
     }
 
     private void parseFile(int index) throws IOException
@@ -94,11 +89,21 @@ public class TextHandler
         } else if (curr.startsWith("<img>"))
         {
             String ground = curr.split(" ")[1];
-            if(ground.equals("b"))
+            String path = gameDir.getAbsolutePath() + "/img/" + curr.split(" ")[2];
+            try
             {
-                
+                if (ground.equals("b"))
+                {
+                    mainFrame.setBackgroundImage(path);
+                } else
+                {
+                    mainFrame.setForegroundImage(path);
+                }
+                return processLine();
+            } catch (IOException e)
+            {
+                return "Failed to load image.";
             }
-            return "image stuff";
         } else if (curr.startsWith("<load>"))
         {
             return "load text file here";

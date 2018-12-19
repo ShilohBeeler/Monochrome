@@ -9,16 +9,16 @@ import model.ChangeListener;
 import model.TextHandler;
 
 public class Monochrome
-{    
+{
     public static void main(String[] args)
     {
-        String folder = System.getProperty("user.home")+"/MNCHRM";
+        String folder = System.getProperty("user.home") + "/MNCHRM";
         File path = new File(folder);
-        
-        if(!(path.exists() && path.isDirectory()))
+
+        if (!(path.exists() && path.isDirectory()))
         {
             path.mkdir();
-            new File(folder+"/resources").mkdir();
+            new File(folder + "/resources").mkdir();
             File font = new File("src/resources/AppleII.ttf");
             File def = new File("src/resources/Default.mono");
             try
@@ -32,9 +32,11 @@ public class Monochrome
         }
 
         MainFrame mf = new MainFrame();
-        TextHandler th = new TextHandler(System.getProperty("user.home") + "/MNCHRM/Default.mono");
+        TextHandler th = new TextHandler(mf, System.getProperty("user.home") + "/MNCHRM/Default.mono");
         mf.setLine(th.processLine());
+
+        @SuppressWarnings("unused")
         ChangeListener listener = new ChangeListener(mf, th);
     }
-    
+
 }

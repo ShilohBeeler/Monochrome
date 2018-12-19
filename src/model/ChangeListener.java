@@ -17,18 +17,18 @@ public class ChangeListener implements ActionListener, KeyListener
 {
     private static MainFrame mf;
     private static TextHandler th;
-    
+
     public ChangeListener()
     {
-        
+
     }
-    
+
     public ChangeListener(MainFrame mainFrame, TextHandler textHandler)
     {
         mf = mainFrame;
         th = textHandler;
     }
-    
+
     @Override
     public void keyTyped(KeyEvent e)
     {

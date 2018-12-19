@@ -2,22 +2,9 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.io.File;
 import java.io.IOException;
 
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
 import model.ChangeListener;
 
 public class MainFrame extends JFrame
@@ -51,15 +38,15 @@ public class MainFrame extends JFrame
     {
         dialogPanel.nextLine(text);
     }
-    
-    public void setForegroundImage(String path)
+
+    public void setForegroundImage(String path) throws IOException
     {
-        
+        imagePanel.setForegroundImage(path);
     }
-    
-    public void setBackgroundImage(String path)
+
+    public void setBackgroundImage(String path) throws IOException
     {
-        
+        imagePanel.setBackgroundImage(path);
     }
-  
+
 }

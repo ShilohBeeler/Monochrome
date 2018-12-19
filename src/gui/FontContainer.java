@@ -5,10 +5,10 @@ import java.awt.FontFormatException;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class FontContainer 
+public class FontContainer
 {
     private static Font font;
-    
+
     public static Font getFont()
     {
         try
@@ -24,9 +24,9 @@ public class FontContainer
             e.printStackTrace();
             return null;
         }
-        
+
         font = font.deriveFont(12f);
-        
+
         return font;
     }
 }
