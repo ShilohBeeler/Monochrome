@@ -18,7 +18,9 @@ import javax.swing.JLabel;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class MainFrame extends JFrame implements KeyListener, ActionListener
+import model.ChangeListener;
+
+public class MainFrame extends JFrame
 {
     private ImagePanel imagePanel = new ImagePanel();
     private DialogPanel dialogPanel = new DialogPanel();
@@ -31,9 +33,6 @@ public class MainFrame extends JFrame implements KeyListener, ActionListener
 
         this.getContentPane().setBackground(Color.BLACK);
 
-        menuPanel.loadButton.addActionListener(this);
-        menuPanel.quitButton.addActionListener(this);
-
         add(imagePanel, BorderLayout.WEST);
 
         add(menuPanel, BorderLayout.EAST);
@@ -45,55 +44,22 @@ public class MainFrame extends JFrame implements KeyListener, ActionListener
         setVisible(true);
         setFocusable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.addKeyListener(this);
+        this.addKeyListener(new ChangeListener());
     }
 
-    @Override
-    public void keyTyped(KeyEvent e)
+    public void setLine(String text)
     {
-        // TODO Auto-generated method stub
-
+        dialogPanel.nextLine(text);
     }
-
-    @Override
-    public void keyPressed(KeyEvent e)
+    
+    public void setForegroundImage(String path)
     {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER)
-        {
-            dialogPanel.nextLine();
-        }
-
+        
     }
-
-    @Override
-    public void keyReleased(KeyEvent e)
+    
+    public void setBackgroundImage(String path)
     {
-        // TODO Auto-generated method stub
-
+        
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        JButton clicked = (JButton) e.getSource();
-        if (clicked.getText().equals("Load"))
-        {
-            JFileChooser fc = new JFileChooser(System.getProperty("user.home") + "/MNCHRM/");
-            FileFilter filter = new FileNameExtensionFilter("MONOCHROME File", "mono");
-            File file = null;
-            fc.setFileFilter(filter);
-
-            int returnVal = fc.showOpenDialog(null);
-            if (returnVal == JFileChooser.APPROVE_OPTION)
-            {
-                file = fc.getSelectedFile();
-                dialogPanel.getTextHandler().setFile(file);
-                dialogPanel.nextLine();
-            }
-        } else if (clicked.getText().equals("Quit"))
-        {
-            System.exit(0);
-        }
-
-    }
+  
 }

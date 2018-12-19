@@ -14,6 +14,8 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import model.ChangeListener;
+
 public class MenuPanel extends JPanel
 {
     public JButton loadButton;
@@ -58,5 +60,8 @@ public class MenuPanel extends JPanel
         quitButton.setBorder(compound);
         quitButton.setFont(font);
         add(quitButton);
+        
+        loadButton.addActionListener(new ChangeListener());
+        quitButton.addActionListener(new ChangeListener());
     }
 }

@@ -30,7 +30,6 @@ public class ImagePanel extends JPanel
             background = ImageIO.read(new File(System.getProperty("user.home")+"/MNCHRM/resources/MCBG.png"));
         } catch (IOException e)
         {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

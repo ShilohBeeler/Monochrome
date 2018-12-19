@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 import gui.MainFrame;
+import model.ChangeListener;
+import model.TextHandler;
 
 public class Monochrome
-{
+{    
     public static void main(String[] args)
     {
         String folder = System.getProperty("user.home")+"/MNCHRM";
@@ -28,7 +30,11 @@ public class Monochrome
                 e.printStackTrace();
             }
         }
-        
+
         MainFrame mf = new MainFrame();
+        TextHandler th = new TextHandler(System.getProperty("user.home") + "/MNCHRM/Default.mono");
+        mf.setLine(th.processLine());
+        ChangeListener listener = new ChangeListener(mf, th);
     }
+    
 }
